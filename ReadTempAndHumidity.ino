@@ -37,7 +37,7 @@ void loop() {
     // Check the results of the readings.
     // If the reading is successful, print the temperature and humidity values.
     // If there are errors, print the appropriate error messages.
-    if(humidity > 47){
+    if(humidity > 57){
       tone(buzzerPin, 100);
       delay(100);
       noTone(buzzerPin);
