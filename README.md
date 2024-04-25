@@ -97,6 +97,7 @@ between flash_period and diff means that a greater change in inductance will res
 flash_period, and more frequent LED flashes.
 
 **LED and Buzzer Outputs**
+
 This is the part of the code that decides
 Which LED is flashed or which buzzer is sounded.
 The variable ledstat determines which LED is turned
