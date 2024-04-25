@@ -31,7 +31,7 @@ experimental procedures, a total of four laboratory sessions were dedicated to c
 Subsequently, the testing apparatus and the incontinence device were successfully fabricated and
 demonstrated operational functionality.
 
-/* More about the code */
+**More about the code**
 
 For the part of the circuit that is used to detect the change in inductance, only two pins, A0 and A1, are
 needed. Pin A0 is referred to using the variable pin_pulse and is used to apply pulses to the search coil.
@@ -41,6 +41,7 @@ In the main loop() function, the variable ‘sum’ is created and set to 0. Thi
 only the measurements taken in this iteration of the loop() function. This is then followed by the for loop
 that applies the pulses and measures the charge on the capacitor. This for loop will be referred to as the
 ‘measurement loop’ in this report.
+
 At the beginning of the measurement loop, pin_cap is utilised as an output and set to LOW for 20ms,
 before being switched back into an input, ready for the measurements. Then, the pulses are applied,
 followed by the measurement of the charge. The value for the delays was initially
@@ -56,7 +57,9 @@ positive and negative spikes in the
 readings. For one iteration of the loop() function, 258 measurements are taken, and after the min/max
 values are removed, 256 readings remain
 
-Processing the measurements
+
+**Processing the measurements**
+
 In this part of the code, two more variables are used to store sums. As previously mentioned, ‘sum’ is the
 local sum of the 256 measurements taken in one iteration of the main loop() function. The variable
 ‘sumsum’ is the sum of the local sum over 64 iterations of the main loop(). The third variable ‘avgsum’ is
@@ -68,6 +71,7 @@ it is set to the value of sum times
 5
 64. This multiplication is calculated by left shifting the value of sum by 6, since bitshift operations are
 more efficient than multiplication.
+
 In the latter two lines, the value of avgsum and the difference between the local sum and the
 long-running avgsum are calculated.
 This bit of code decides whether to adjust the value of sumsum or not. If the variable ‘diff’ is small, then
@@ -92,7 +96,7 @@ statement calculates a value for flash_period in the case that diff is not zero.
 between flash_period and diff means that a greater change in inductance will result in a shorter
 flash_period, and more frequent LED flashes.
 
-LED and Buzzer Outputs
+**LED and Buzzer Outputs**
 This is the part of the code that decides
 Which LED is flashed or which buzzer is sounded.
 The variable ledstat determines which LED is turned
@@ -105,6 +109,7 @@ The first if statement checks if less than 10ms has
 passed since the last flash, and if so, it assigns the
 appropriate value to ledstat.
 6
+
 The second if statement checks If the flash_period, calculated in the previous snippet of code, has
 passed since the prev_flash. If so, the appropriate value is assigned to ledstat and the current time is
 assigned to prev_flash, this marks the start of a distinct flashing of the LEDs.
